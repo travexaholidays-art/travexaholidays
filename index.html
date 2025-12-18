@@ -76,64 +76,51 @@
   </div>
 </header>
 
-<section id="packages">
-  <h3>Popular Packages</h3>
-  <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"><div><h4>Goa Beach Holiday</h4><p>3N / 4D | Starting ₹9,999</p></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1518684079-3c830dcef090"><div><h4>Dubai Luxury Tour</h4><p>5N / 6D | Desert Safari</p></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"><div><h4>Manali Honeymoon</h4><p>Romantic mountain escape</p></div></div>
-  </div>
-</section>
-
-<section id="destinations" class="light">
-  <h3>Top Destinations</h3>
-  <div class="grid">
-    <div class="card"><img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1"><div><h4>India Tours</h4></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34"><div><h4>International Tours</h4></div></div>
-    <div class="card"><img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60b"><div><h4>Honeymoon Specials</h4></div></div>
-  </div>
-</section>
-
-<section id="why" class="why">
-  <h3>Why Choose Travexa Holidays</h3>
-  <ul>
-    <li>✔ Personalized travel planning</li>
-    <li>✔ Best price guarantee</li>
-    <li>✔ 24/7 customer support</li>
-    <li>✔ Trusted travel experts</li>
-  </ul>
-</section>
-
-<section id="contact" class="cta">
-  <h3>Start Planning Your Journey</h3>
-  <p>Email: travexaholidays.in | WhatsApp us anytime</p>
-</section>
-
 <section id="enquiry" class="light">
   <h3>Quick Enquiry</h3>
-  <form style="max-width:700px;margin:auto;display:grid;gap:15px">
-    <input type="text" placeholder="Your Name" required style="padding:14px;border-radius:8px;border:1px solid #ccc">
-    <input type="email" placeholder="Your Email" required style="padding:14px;border-radius:8px;border:1px solid #ccc">
-    <input type="tel" placeholder="Phone / WhatsApp" required style="padding:14px;border-radius:8px;border:1px solid #ccc">
-    <select style="padding:14px;border-radius:8px;border:1px solid #ccc">
+  <form id="enquiryForm" style="max-width:700px;margin:auto;display:grid;gap:15px">
+    <input name="name" type="text" placeholder="Your Name" required>
+    <input name="email" type="email" placeholder="Your Email" required>
+    <input name="phone" type="tel" placeholder="Phone / WhatsApp" required>
+    <select name="tour">
       <option>Domestic Tour</option>
       <option>International Tour</option>
       <option>Honeymoon Package</option>
     </select>
-    <textarea placeholder="Your Travel Requirement" rows="4" style="padding:14px;border-radius:8px;border:1px solid #ccc"></textarea>
+    <textarea name="message" placeholder="Your Travel Requirement"></textarea>
     <button type="submit" class="btn">Send Enquiry</button>
   </form>
 </section>
 
-<section id="search" class="light">
-  <h3>Search Packages</h3>
-  <input type="text" placeholder="Search destination or package" style="max-width:500px;width:100%;margin:auto;display:block;padding:15px;border-radius:30px;border:1px solid #ccc">
-</section>
+<script>
+document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-<section id="pages" class="light">
-  <h3>More Pages</h3>
-  <p style="text-align:center">About Us | Packages | Contact Us (single-page layout ready for expansion)</p>
-</section>
+  const name = this.name.value;
+  const email = this.email.value;
+  const phone = this.phone.value;
+  const tour = this.tour.value;
+  const message = this.message.value;
+
+  const waText = `New Travel Enquiry%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ATour: ${tour}%0ARequirement: ${message}`;
+  window.open(`https://wa.me/919643321952?text=${waText}`, "_blank");
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLScOoxLfDt-K8ph-BFf7mkM4cx1-Cwf3Mjz3Z72zjmb2JpWC1A/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: new URLSearchParams({
+      "entry.492304799": name,
+      "entry.1918301282": email,
+      "entry.897843107": phone,
+      "entry.387665914": tour,
+      "entry.1832728489": message
+    })
+  });
+
+  this.reset();
+});
+</script>
+
 
 <footer>
   © 2025 Travexa Holidays. All Rights Reserved.

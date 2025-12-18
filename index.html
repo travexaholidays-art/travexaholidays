@@ -93,33 +93,45 @@
 </section>
 
 <script>
-document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+document.getElementById("enquiryForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  const name = this.name.value;
-  const email = this.email.value;
-  const phone = this.phone.value;
-  const tour = this.tour.value;
-  const message = this.message.value;
+  const name = this.name.value.trim() || "NA";
+  const email = this.email.value.trim() || "NA";
+  const phone = this.phone.value.trim() || "NA";
+  const tour = this.tour.value || "NA";
+  const message = this.message.value.trim() || "NA";
 
-  const waText = `New Travel Enquiry%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0ATour: ${tour}%0ARequirement: ${message}`;
-  window.open(`https://wa.me/919643321952?text=${waText}`, "_blank");
+  // 📱 WhatsApp (instant)
+  const waText =
+    "New Travel Enquiry%0A" +
+    "Name: " + name + "%0A" +
+    "Email: " + email + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Tour: " + tour + "%0A" +
+    "Requirement: " + message;
 
+  window.open("https://wa.me/919643321952?text=" + waText, "_blank");
+
+  // 📊 Google Sheet (background)
   fetch("https://docs.google.com/forms/d/e/1FAIpQLScOoxLfDt-K8ph-BFf7mkM4cx1-Cwf3Mjz3Z72zjmb2JpWC1A/formResponse", {
     method: "POST",
     mode: "no-cors",
-    body: new URLSearchParams({
-      "entry.492304799": name,
-      "entry.1918301282": email,
-      "entry.897843107": phone,
-      "entry.387665914": tour,
-      "entry.1832728489": message
-    })
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body:
+      "entry.492304799=" + encodeURIComponent(name) +
+      "&entry.1918301282=" + encodeURIComponent(email) +
+      "&entry.897843107=" + encodeURIComponent(phone) +
+      "&entry.387665914=" + encodeURIComponent(tour) +
+      "&entry.1832728489=" + encodeURIComponent(message)
   });
 
   this.reset();
 });
 </script>
+
 
 
 <footer>

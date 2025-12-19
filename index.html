@@ -1,144 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Travexa Holidays | Tour & Travels</title>
-  <meta name="description" content="Travexa Holidays - Premium Tour & Travel Company offering domestic & international holiday packages." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Travexa Holidays | Tour & Travel Company</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Travexa Holidays - Domestic & International Tour Packages at Best Prices">
+  <link rel="icon" href="logo.png">
+
   <style>
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Poppins',sans-serif;color:#222;background:#ffffff}
-    a{text-decoration:none}
+    body{margin:0;font-family:Poppins,Arial,sans-serif;background:#fff;color:#222}
 
-    /* CLASSIC TRAVEL TRUST COLORS */
     :root{
-      --primary:#0D6EFD;      /* Royal Blue */
-      --secondary:#ADB5BD;    /* Light Grey */
-      --background:#FFFFFF;  /* White */
+      --primary:#0D6EFD;
+      --secondary:#ADB5BD;
       --light:#F5F7FA;
     }
 
-    header{background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;color:#fff}
+    header{
+      background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover no-repeat;
+      color:#fff;
+    }
     .overlay{background:rgba(13,110,253,.75)}
 
-    nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px}
-    nav h1{margin:0;font-size:26px;font-weight:700}
-    nav a{color:#fff;margin-left:20px;font-weight:500}
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+    }
 
-    .hero{padding:100px 20px;text-align:center}
-    .hero h2{font-size:48px;margin-bottom:15px}
-    .hero p{font-size:18px;max-width:750px;margin:0 auto 30px}
+    nav a{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-weight:500;
+    }
 
-    .btn{background:var(--primary);color:#fff;padding:14px 32px;border-radius:30px;font-weight:600;display:inline-block}
+    .hero{
+      padding:100px 20px;
+      text-align:center;
+    }
 
-    section{padding:80px 20px;max-width:1200px;margin:auto}
-    h3{text-align:center;font-size:36px;margin-bottom:50px;color:var(--primary)}
+    .hero h2{font-size:44px;margin-bottom:15px}
+    .hero p{font-size:18px;max-width:750px;margin:auto}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px}
+    .btn{
+      background:var(--primary);
+      color:#fff;
+      padding:14px 32px;
+      border-radius:30px;
+      text-decoration:none;
+      display:inline-block;
+      font-weight:600;
+      margin-top:25px;
+    }
 
-    .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:.3s;border:1px solid var(--secondary)}
-    .card:hover{transform:translateY(-6px)}
-    .card img{width:100%;height:180px;object-fit:cover}
+    section{
+      padding:80px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    h3{
+      text-align:center;
+      font-size:34px;
+      margin-bottom:50px;
+      color:var(--primary);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:18px;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+      border:1px solid var(--secondary);
+      overflow:hidden;
+    }
+
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+
     .card div{padding:20px}
     .card h4{margin:0 0 10px;color:var(--primary)}
 
     .light{background:var(--light)}
 
-    .why ul{max-width:900px;margin:auto;list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-    .why li{background:#fff;padding:25px;border-radius:16px;box-shadow:0 6px 15px rgba(0,0,0,.06);border-left:5px solid var(--primary)}
+    footer{
+      background:#111;
+      color:#ccc;
+      text-align:center;
+      padding:25px;
+    }
 
-    .cta{background:var(--primary);color:#fff;text-align:center;padding:70px 20px}
-
-    footer{background:#111;color:#ccc;text-align:center;padding:25px;font-size:14px}
-
-    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,.3);z-index:999}
+    .whatsapp{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#25D366;
+      color:#fff;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      text-decoration:none;
+      box-shadow:0 4px 10px rgba(0,0,0,.3);
+    }
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="overlay">
     <nav>
-      <h1>Travexa Holidays</h1>
+      <img src="logo.png" alt="Travexa Holidays Logo" style="height:60px">
       <div>
         <a href="#packages">Packages</a>
-        <a href="#destinations">Destinations</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact">Contact</a>
+        <a href="packages.html">Prices</a>
+        <a href="#enquiry">Enquiry</a>
       </div>
     </nav>
+
     <div class="hero">
-      <h2>Discover Your Next Perfect Holiday</h2>
-      <p>Domestic & International tour packages crafted with care for unforgettable experiences.</p>
-      <a href="#contact" class="btn">Plan Your Trip</a>
+      <h2>Explore the World with Travexa Holidays</h2>
+      <p>Domestic & International tour packages at the best prices with trusted service.</p>
+      <a href="#enquiry" class="btn">Get Best Deal</a>
     </div>
   </div>
 </header>
 
+<section id="packages">
+  <h3>Popular Packages</h3>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+      <div>
+        <h4>Goa Tour</h4>
+        <p>Starting ₹18,999</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+      <div>
+        <h4>Dubai Tour</h4>
+        <p>Starting ₹59,999</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
+      <div>
+        <h4>Honeymoon Packages</h4>
+        <p>Special Romantic Trips</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="enquiry" class="light">
   <h3>Quick Enquiry</h3>
+
   <form id="enquiryForm" style="max-width:700px;margin:auto;display:grid;gap:15px">
-    <input name="name" type="text" placeholder="Your Name" required>
-    <input name="email" type="email" placeholder="Your Email" required>
-    <input name="phone" type="tel" placeholder="Phone / WhatsApp" required>
+    <input name="name" placeholder="Your Name" required>
+    <input name="email" placeholder="Your Email" required>
+    <input name="phone" placeholder="Phone / WhatsApp" required>
+
     <select name="tour">
       <option>Domestic Tour</option>
       <option>International Tour</option>
       <option>Honeymoon Package</option>
     </select>
+
     <textarea name="message" placeholder="Your Travel Requirement"></textarea>
     <button type="submit" class="btn">Send Enquiry</button>
   </form>
 </section>
 
+<footer>
+  © Travexa Holidays | All Rights Reserved
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919643321952" target="_blank">💬</a>
+
 <script>
 document.getElementById("enquiryForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  const name = this.name.value.trim() || "NA";
-  const email = this.email.value.trim() || "NA";
-  const phone = this.phone.value.trim() || "NA";
-  const tour = this.tour.value || "NA";
-  const message = this.message.value.trim() || "NA";
+  const name=this.name.value;
+  const email=this.email.value;
+  const phone=this.phone.value;
+  const tour=this.tour.value;
+  const message=this.message.value;
 
-  // 📱 WhatsApp (instant)
   const waText =
-    "New Travel Enquiry%0A" +
-    "Name: " + name + "%0A" +
-    "Email: " + email + "%0A" +
-    "Phone: " + phone + "%0A" +
-    "Tour: " + tour + "%0A" +
-    "Requirement: " + message;
+   "New Travel Enquiry%0AName: "+name+
+   "%0AEmail: "+email+
+   "%0APhone: "+phone+
+   "%0ATour: "+tour+
+   "%0ARequirement: "+message;
 
-  window.open("https://wa.me/919643321952?text=" + waText, "_blank");
+  window.open("https://wa.me/919643321952?text="+waText,"_blank");
 
-  // 📊 Google Sheet (background)
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLScOoxLfDt-K8ph-BFf7mkM4cx1-Cwf3Mjz3Z72zjmb2JpWC1A/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLScOoxLfDt-K8ph-BFf7mkM4cx1-Cwf3Mjz3Z72zjmb2JpWC1A/formResponse",{
+    method:"POST",
+    mode:"no-cors",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
     body:
-      "entry.492304799=" + encodeURIComponent(name) +
-      "&entry.1918301282=" + encodeURIComponent(email) +
-      "&entry.897843107=" + encodeURIComponent(phone) +
-      "&entry.387665914=" + encodeURIComponent(tour) +
-      "&entry.1832728489=" + encodeURIComponent(message)
+      "entry.492304799="+encodeURIComponent(name)+
+      "&entry.1918301282="+encodeURIComponent(email)+
+      "&entry.897843107="+encodeURIComponent(phone)+
+      "&entry.387665914="+encodeURIComponent(tour)+
+      "&entry.1832728489="+encodeURIComponent(message)
   });
 
   this.reset();
 });
 </script>
-
-
-
-<footer>
-  © 2025 Travexa Holidays. All Rights Reserved.
-</footer>
-
-<a href="https://wa.me/919643321952" target="_blank" class="whatsapp">💬</a>
 
 </body>
 </html>

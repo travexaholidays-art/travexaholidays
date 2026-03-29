@@ -38,7 +38,20 @@ nav a{
 .slides{
   display:flex;
   width:300%;
-  animation:slide 12s infinite;
+  animation:slide 15s infinite;
+}
+
+@keyframes slide{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(0)}
+
+  33%{transform:translateX(-100%)}
+  58%{transform:translateX(-100%)}
+
+  66%{transform:translateX(-200%)}
+  91%{transform:translateX(-200%)}
+
+  100%{transform:translateX(0)}
 }
 
 .slides img{

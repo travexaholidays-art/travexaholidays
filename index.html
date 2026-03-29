@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Travexa Holidays</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="icon" href="logo.png">
 
 <style>
@@ -19,9 +18,7 @@ nav{
   padding:15px 40px;
   background:#0a2540;
 }
-
 nav img{height:55px}
-
 nav a{
   color:#fff;
   margin-left:20px;
@@ -30,6 +27,7 @@ nav a{
 
 /* SLIDER */
 .slider{
+  position:relative;
   width:100%;
   height:400px;
   overflow:hidden;
@@ -38,20 +36,7 @@ nav a{
 .slides{
   display:flex;
   width:300%;
-  animation:slide 30s infinite;
-}
-
-@keyframes slide{
-  0%{transform:translateX(0)}
-  25%{transform:translateX(0)}
-
-  33%{transform:translateX(-100%)}
-  58%{transform:translateX(-100%)}
-
-  66%{transform:translateX(-200%)}
-  91%{transform:translateX(-200%)}
-
-  100%{transform:translateX(0)}
+  transition:transform 0.5s ease;
 }
 
 .slides img{
@@ -60,14 +45,24 @@ nav a{
   object-fit:cover;
 }
 
-@keyframes slide{
-  0%{transform:translateX(0)}
-  33%{transform:translateX(-100%)}
-  66%{transform:translateX(-200%)}
-  100%{transform:translateX(0)}
+/* BUTTONS */
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  border:none;
+  padding:10px 15px;
+  font-size:22px;
+  cursor:pointer;
+  border-radius:50%;
 }
 
-/* HERO TEXT BELOW */
+.prev{left:15px}
+.next{right:15px}
+
+/* TEXT BELOW */
 .hero-text{
   text-align:center;
   padding:40px 20px;
@@ -157,13 +152,18 @@ footer{
   </div>
 </nav>
 
-<!-- SLIDER -->
+<!-- SLIDER WITH BUTTONS -->
 <header class="slider">
-  <div class="slides">
+
+  <div class="slides" id="slides">
     <img src="https://i.pinimg.com/736x/6f/02/72/6f027229d902d206b5756f728568f144.jpg">
     <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470">
     <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff">
   </div>
+
+  <button class="prev" onclick="prevSlide()">❮</button>
+  <button class="next" onclick="nextSlide()">❯</button>
+
 </header>
 
 <!-- TEXT BELOW -->
@@ -209,6 +209,34 @@ footer{
 <footer>
   © Travexa Holidays
 </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+let index = 0;
+
+function showSlide(){
+  const slides = document.getElementById("slides");
+  slides.style.transform = "translateX(-" + (index * 100) + "%)";
+}
+
+function nextSlide(){
+  if(index < 2){
+    index++;
+  } else {
+    index = 0;
+  }
+  showSlide();
+}
+
+function prevSlide(){
+  if(index > 0){
+    index--;
+  } else {
+    index = 2;
+  }
+  showSlide();
+}
+</script>
 
 </body>
 </html>
